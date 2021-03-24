@@ -1,0 +1,2 @@
+1. Speed: 315; Distance: 630; Estimate time: 2; Type: Planes; Range: 1000; Carry: 500;
+1 1000 500 315 630
