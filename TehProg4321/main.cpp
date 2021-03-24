@@ -2,7 +2,7 @@
 // Контейнер на основе однонаправленного кольцевого списка.
 // Разбиение на модули осуществляется по объектному принципу.
 // Обобщение, построенное на основе непосредственного включения специализаций.
-// ООП
+// OOP
 #include "container.h"
 
 using namespace std;
@@ -20,6 +20,10 @@ int main(int argc, char* argv[]) {
     container c{};
     c.read_container(ifst);
     c.out_container(ofst);
+    ofst << "Ignoring type 1:" << std::endl;
+    c.out_container(ofst, T_type::PLANES);
+    ofst << "Ignoring type 2:" << std::endl;
+    c.out_container(ofst, T_type::TRAIN);
     c.containerClear();
     cout << "END" << endl;
     return 0;
