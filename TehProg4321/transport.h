@@ -11,8 +11,10 @@ enum T_type {
 
 class transport {
 public:
+    T_type tr_type;
     int speed;
     int distance;
+    double mass;
 
     virtual bool read(std::ifstream& stream) = 0;
     virtual void out(std::ofstream& stream) = 0;
