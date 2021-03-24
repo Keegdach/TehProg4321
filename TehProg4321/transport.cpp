@@ -5,10 +5,6 @@
 transport* transport::read_transport(std::ifstream& stream) {
     int type;
     stream >> type;
-    if (type < 1 || type > 2) {
-        std::cout << "Input error." << std::endl;
-        return nullptr;
-    }
     transport* temp_t;
     switch (type) {
     case T_type::PLANES:

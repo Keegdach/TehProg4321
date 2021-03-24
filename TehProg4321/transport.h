@@ -11,7 +11,6 @@ enum T_type {
 
 class transport {
 public:
-    T_type tr_type;
     int speed;
     int distance;
     double mass;
