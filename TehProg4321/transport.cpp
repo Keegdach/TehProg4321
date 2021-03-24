@@ -1,6 +1,7 @@
 #include "transport.h"
 #include "planes.h"
 #include "train.h"
+#include "ship.h"
 
 transport* transport::read_transport(std::ifstream& stream) {
     int type;
@@ -17,6 +18,10 @@ transport* transport::read_transport(std::ifstream& stream) {
         break;
     case T_type::TRAIN:
         temp_t = new train{};
+        temp_t->read(stream);
+        break;
+    case T_type::SHIP:
+        temp_t = new ship{};
         temp_t->read(stream);
         break;
     default:
