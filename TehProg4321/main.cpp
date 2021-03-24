@@ -2,7 +2,7 @@
 // Контейнер на основе однонаправленного кольцевого списка.
 // Разбиение на модули осуществляется по объектному принципу.
 // Обобщение, построенное на основе непосредственного включения специализаций.
-// ООП
+// OOP
 #include "container.h"
 
 using namespace std;
@@ -19,6 +19,9 @@ int main(int argc, char* argv[]) {
     cout << "START" << endl;
     container c{};
     c.read_container(ifst);
+    c.out_container(ofst);
+    ofst << "Sorted container" << std::endl;
+    c.sort();
     c.out_container(ofst);
     c.containerClear();
     cout << "END" << endl;

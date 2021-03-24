@@ -5,10 +5,6 @@
 transport* transport::read_transport(std::ifstream& stream) {
     int type;
     stream >> type;
-    if (type < 1 || type > 3) {
-        std::cout << "Input error." << std::endl;
-        return nullptr;
-    }
     transport* temp_t;
     switch (type) {
     case T_type::PLANES:
@@ -30,6 +26,14 @@ transport* transport::read_transport(std::ifstream& stream) {
 }
 
 void transport::out_transport(std::ofstream& stream) {
-    stream << "Speed: " << speed << "; Distance: " << distance << "; Type: ";
+    stream << "Speed: " << speed << "; Distance: " << distance << "; Estimate time: " << estimate_time() << "; Type: ";
     out(stream);
+}
+
+double transport::estimate_time() {
+    return distance / speed;
+}
+
+bool transport::comparator(transport* el1, transport* el2) {
+    return el1->estimate_time() < el2->estimate_time();
 }
