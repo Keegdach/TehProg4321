@@ -1,3 +1,4 @@
+
 #include "transport.h"
 #include "planes.h"
 #include "train.h"
@@ -5,7 +6,7 @@
 transport* transport::read_transport(std::ifstream& stream) {
     int type;
     stream >> type;
-    if (type < 1 || type > 3) {
+    if (type < 1 || type > 2) {
         std::cout << "Input error." << std::endl;
         return nullptr;
     }
@@ -14,10 +15,12 @@ transport* transport::read_transport(std::ifstream& stream) {
     case T_type::PLANES:
         temp_t = new planes{};
         temp_t->read(stream);
+        temp_t->tr_type = T_type::PLANES;
         break;
     case T_type::TRAIN:
         temp_t = new train{};
         temp_t->read(stream);
+        temp_t->tr_type = T_type::TRAIN;
         break;
     default:
         return nullptr;
@@ -30,6 +33,10 @@ transport* transport::read_transport(std::ifstream& stream) {
 }
 
 void transport::out_transport(std::ofstream& stream) {
-    stream << "Speed: " << speed << "; Distance: " << distance << "; Type: ";
+    stream << "Speed: " << speed << "; Distance: " << distance << "; Estimate time: " << estimate_time() << "; Type: ";
     out(stream);
+}
+
+double transport::estimate_time() {
+    return distance / speed;
 }

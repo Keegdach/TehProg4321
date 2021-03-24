@@ -11,6 +11,7 @@ enum T_type {
 
 class transport {
 public:
+    T_type tr_type;
     int speed;
     int distance;
 
@@ -19,6 +20,7 @@ public:
 
     static transport* read_transport(std::ifstream& stream);
     void out_transport(std::ofstream& stream);
+    double estimate_time();
 private:
 };
 
