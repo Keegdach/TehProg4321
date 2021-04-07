@@ -62,3 +62,22 @@ void container::sort() {
         el1 = el1->forward;
     }
 }
+
+void container::out_container_planes(std::ofstream& stream) {
+    element* el = starting;
+    for (int i = 0; i < size; i++)
+    {
+        el->t->out_planes(stream);
+        el = el->forward;
+    }
+}
+
+void container::out_container_trains(std::ofstream& stream) {
+    element* el = starting;
+    for (int i = 0; i < size; i++)
+    {        
+        el->t->out_trains(stream);
+        el = el->forward;
+    }
+}
+

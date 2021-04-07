@@ -5,20 +5,23 @@
 #include <fstream>
 
 enum T_type {
-    PLANES = 1,
-    TRAIN = 2
+    PLANES=1,
+    TRAIN=2
 };
 
 class transport {
 public:
+
     int speed;
     int distance;
     double mass;
 
     virtual bool read(std::ifstream& stream) = 0;
     virtual void out(std::ofstream& stream) = 0;
+    virtual void out_planes(std::ofstream& stream) = 0;
+    virtual void out_trains(std::ofstream& stream) = 0;
 
-    static transport* read_transport(std::ifstream& stream);
+    static transport* read_transport(std::ifstream&stream);
     void out_transport(std::ofstream& stream);
     double estimate_time();
     static bool comparator(transport* el1, transport* el2);

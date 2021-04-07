@@ -20,6 +20,8 @@ public:
     void read_container(std::ifstream& stream);
     void out_container(std::ofstream& stream);
     void sort();
+    void out_container_planes(std::ofstream& stream);
+    void out_container_trains(std::ofstream& stream);
     element* starting;
     element* ending;
     int size;
