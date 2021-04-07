@@ -13,6 +13,7 @@ class transport {
 public:
     int speed;
     int distance;
+    double mass;
 
     virtual bool read(std::ifstream& stream) = 0;
     virtual void out(std::ofstream& stream) = 0;
