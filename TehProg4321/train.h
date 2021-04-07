@@ -8,6 +8,8 @@ public:
     int length;
     bool read(std::ifstream& stream);
     void out(std::ofstream& stream);
+    void out_planes(std::ofstream& stream);
+    void out_trains(std::ofstream& stream);
 private:
 };
 

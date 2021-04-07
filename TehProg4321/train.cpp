@@ -10,3 +10,9 @@ bool train::read(std::ifstream& stream) {
 void train::out(std::ofstream& stream) {
     stream << "Train; Length: " << length << ";" << std::endl;
 }
+void train::out_planes(std::ofstream& stream) {
+    stream << std::endl;
+}
+void train::out_trains(std::ofstream& stream) {
+    stream << "Speed: " << transport::speed << "; Distance: " << transport::distance << "; Type: " << "Train; Length: " << length << ";" << std::endl;
+}
