@@ -22,6 +22,7 @@ public:
     void sort();
     void out_container_planes(std::ofstream& stream);
     void out_container_trains(std::ofstream& stream);
+    void out_container_ships(std::ofstream& stream);
     element* starting;
     element* ending;
     int size;

@@ -81,3 +81,12 @@ void container::out_container_trains(std::ofstream& stream) {
     }
 }
 
+void container::out_container_ships(std::ofstream& stream) {
+    element* el = starting;
+    for (int i = 0; i < size; i++)
+    {
+        el->t->out_ships(stream);
+        el = el->forward;
+    }
+}
+

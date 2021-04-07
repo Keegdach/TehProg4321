@@ -13,6 +13,9 @@ void train::out(std::ofstream& stream) {
 void train::out_planes(std::ofstream& stream) {
     stream << "";
 }
+void train::out_ships(std::ofstream& stream) {
+    stream << "";
+}
 void train::out_trains(std::ofstream& stream) {
     stream << "Speed: " << transport::speed << "; Estimate time: " << estimate_time() << "; Distance: " << distance << "; Mass: " << mass << "; Type: " << "Train; Length: " << length << ";" << std::endl;
 }

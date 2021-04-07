@@ -10,6 +10,7 @@ public:
     void out(std::ofstream& stream);
     void out_planes(std::ofstream& stream);
     void out_trains(std::ofstream& stream);
+    void out_ships(std::ofstream& stream);
 private:
 };
 

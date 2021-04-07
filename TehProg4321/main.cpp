@@ -23,10 +23,12 @@ int main(int argc, char* argv[]) {
     ofst << "Sorted container" << std::endl;
     c.sort();
     c.out_container(ofst);
-    ofst << "Ignoring trains:" << std::endl;
+    ofst << "Out planes:" << std::endl;
     c.out_container_planes(ofst);
-    ofst << "Ignoring planes:" << std::endl;
+    ofst << "Out trains:" << std::endl;
     c.out_container_trains(ofst);
+    ofst << "Out ships:" << std::endl;
+    c.out_container_ships(ofst);
     c.containerClear();
     cout << "END" << endl;
     return 0;

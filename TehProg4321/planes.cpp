@@ -19,3 +19,6 @@ void planes::out_planes(std::ofstream& stream) {
 void planes::out_trains(std::ofstream& stream) {
     stream << "";
 }
+void planes::out_ships(std::ofstream& stream) {
+    stream << "";
+}
