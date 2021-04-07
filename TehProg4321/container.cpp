@@ -50,7 +50,6 @@ void container::out_container_planes(std::ofstream& stream) {
     element* el = starting;
     for (int i = 0; i < size; i++)
     {
-        stream << i + 1 << ". ";
         el->t->out_planes(stream);
         el = el->forward;
     }
@@ -59,8 +58,7 @@ void container::out_container_planes(std::ofstream& stream) {
 void container::out_container_trains(std::ofstream& stream) {
     element* el = starting;
     for (int i = 0; i < size; i++)
-    {
-        stream << i + 1 << ". ";
+    {        
         el->t->out_trains(stream);
         el = el->forward;
     }
