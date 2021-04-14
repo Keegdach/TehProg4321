@@ -10,12 +10,27 @@ bool train::read(std::ifstream& stream) {
 void train::out(std::ofstream& stream) {
     stream << "Train; Length: " << length << ";" << std::endl;
 }
-void train::out_planes(std::ofstream& stream) {
+void train::outPlanes(std::ofstream& stream) {
     stream << "";
 }
-void train::out_ships(std::ofstream& stream) {
+void train::outShips(std::ofstream& stream) {
     stream << "";
 }
-void train::out_trains(std::ofstream& stream) {
-    stream << "Speed: " << transport::speed << "; Estimate time: " << estimate_time() << "; Distance: " << distance << "; Mass: " << mass << "; Type: " << "Train; Length: " << length << ";" << std::endl;
+void train::outTrains(std::ofstream& stream) {
+    stream << "Speed: " << transport::speed << "; Estimate time: " << estimateTime() << "; Distance: " << distance << "; Mass: " << mass << "; Type: " << "Train; Length: " << length << ";" << std::endl;
+}
+void train::multi(transport* other, std::ofstream& stream) {
+    other->trainMulti(stream);
+}
+
+void train::shipMulti(std::ofstream& stream) {
+    stream << "| train + ship |" << std::endl;
+}
+
+void train::planesMulti(std::ofstream& stream) {
+    stream << "| train + planes |" << std::endl;
+}
+
+void train::trainMulti(std::ofstream& stream) {
+    stream << "| train + train |" << std::endl;
 }

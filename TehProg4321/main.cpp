@@ -2,9 +2,8 @@
 // Контейнер на основе однонаправленного кольцевого списка.
 // Разбиение на модули осуществляется по объектному принципу.
 // Обобщение, построенное на основе непосредственного включения специализаций.
-// OOP
+// ООП
 #include "container.h"
-
 using namespace std;
 
 int main(int argc, char* argv[]) {
@@ -16,19 +15,24 @@ int main(int argc, char* argv[]) {
     }
     ifstream ifst(argv[1]);
     ofstream ofst(argv[2]);
+    if (!ifst.is_open()) {
+        std::cout << "I/O File is missing.\n";
+        return 1;
+    }
     cout << "START" << endl;
     container c{};
-    c.read_container(ifst);
-    c.out_container(ofst);
+    c.readContainer(ifst);
+    c.outContainer(ofst);
+    c.multi(ofst);
     ofst << "Sorted container" << std::endl;
     c.sort();
-    c.out_container(ofst);
+    c.outContainer(ofst);
     ofst << "Out planes:" << std::endl;
-    c.out_container_planes(ofst);
+    c.outContainerPlanes(ofst);
     ofst << "Out trains:" << std::endl;
-    c.out_container_trains(ofst);
+    c.outContainerTrains(ofst);
     ofst << "Out ships:" << std::endl;
-    c.out_container_ships(ofst);
+    c.outContainerShips(ofst);
     c.containerClear();
     cout << "END" << endl;
     return 0;

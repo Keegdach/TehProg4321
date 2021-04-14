@@ -15,14 +15,16 @@ private:
 class container {
 public:
     container();
+    void multi(std::ofstream& ofst);
     void containerClear();
     void containerAdd(element*);
-    void read_container(std::ifstream& stream);
-    void out_container(std::ofstream& stream);
+    void readContainer(std::ifstream& stream);
+    void outContainer(std::ofstream& stream);
     void sort();
-    void out_container_planes(std::ofstream& stream);
-    void out_container_trains(std::ofstream& stream);
-    void out_container_ships(std::ofstream& stream);
+    int outContainer(std::ofstream& stream, t_type typ);
+    void outContainerPlanes(std::ofstream& stream);
+    void outContainerTrains(std::ofstream& stream);
+    void outContainerShips(std::ofstream& stream);
     element* starting;
     element* ending;
     int size;

@@ -13,12 +13,28 @@ bool planes::read(std::ifstream& stream) {
 void planes::out(std::ofstream& stream) {
     stream << "Planes; Range: " << range << "; Carry: " << carry << ";" << std::endl;
 }
-void planes::out_planes(std::ofstream& stream) {
-    stream << "Speed: " << transport::speed << "; Estimate time: " << estimate_time() << "; Distance: " << distance << "; Mass: " << mass << "; Type: " << "Planes; Range: " << range << "; Carry: " << carry << ";" << std::endl;
+
+void planes::multi(transport* other, std::ofstream& stream) {
+    other->planesMulti(stream);
 }
-void planes::out_trains(std::ofstream& stream) {
+
+void planes::shipMulti(std::ofstream& stream) {
+    stream << "| planes + ship |" << std::endl;
+}
+
+void planes::planesMulti(std::ofstream& stream) {
+    stream << "| planes + planes |" << std::endl;
+}
+
+void planes::trainMulti(std::ofstream& stream) {
+    stream << "| planes + train |" << std::endl;
+}
+void planes::outPlanes(std::ofstream& stream) {
+    stream << "Speed: " << transport::speed << "; Estimate time: " << estimateTime() << "; Distance: " << distance << "; Mass: " << mass << "; Type: " << "Planes; Range: " << range << "; Carry: " << carry << ";" << std::endl;
+}
+void planes::outTrains(std::ofstream& stream) {
     stream << "";
 }
-void planes::out_ships(std::ofstream& stream) {
+void planes::outShips(std::ofstream& stream) {
     stream << "";
 }

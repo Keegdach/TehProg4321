@@ -1,8 +1,8 @@
 #include "container.h"
 
-void container::read_container(std::ifstream& stream) {
+void container::readContainer(std::ifstream& stream) {
     while (!stream.eof()) {
-        transport* temp_tr = transport::read_transport(stream);
+        transport* temp_tr = transport::readTransport(stream);
         if (temp_tr == nullptr) return; // Если не считалось, то ошибка
         element* el = new element{};
         el->t = temp_tr;
@@ -37,11 +37,11 @@ void container::containerClear() {
     }
 }
 
-void container::out_container(std::ofstream& stream) {
+void container::outContainer(std::ofstream& stream) {
     element* el = starting;
     for (int i = 0; i < size; i++) {
         stream << i + 1 << ". ";
-        el->t->out_transport(stream);
+        el->t->outTransport(stream);
         el = el->forward;
     }
 }
@@ -63,30 +63,50 @@ void container::sort() {
     }
 }
 
-void container::out_container_planes(std::ofstream& stream) {
+void container::outContainerPlanes(std::ofstream& stream) {
     element* el = starting;
     for (int i = 0; i < size; i++)
     {
-        el->t->out_planes(stream);
+        el->t->outPlanes(stream);
         el = el->forward;
     }
 }
 
-void container::out_container_trains(std::ofstream& stream) {
+void container::outContainerTrains(std::ofstream& stream) {
     element* el = starting;
     for (int i = 0; i < size; i++)
     {        
-        el->t->out_trains(stream);
+        el->t->outTrains(stream);
         el = el->forward;
     }
 }
 
-void container::out_container_ships(std::ofstream& stream) {
+void container::outContainerShips(std::ofstream& stream) {
     element* el = starting;
     for (int i = 0; i < size; i++)
     {
-        el->t->out_ships(stream);
+        el->t->outShips(stream);
         el = el->forward;
+    }
+}
+
+void container::multi(std::ofstream& ofst) {
+    ofst << "MULTIMETHOD" << std::endl;
+    element* el1 = starting;
+    int count1 = 0;
+    for (int i = 0; i < size; i++) {
+        element* el2 = starting;
+        for (int j = 0; j < size; j++) {
+            if (i == j) {
+                el2 = el2->forward;
+                continue;
+            }
+            el1->t->multi(el2->t, ofst);
+            el2->t->outTransport(ofst);
+            el1->t->outTransport(ofst);
+            el2 = el2->forward;
+        }
+        el1 = el1->forward;
     }
 }
 

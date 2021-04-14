@@ -4,7 +4,7 @@
 #include <iostream>
 #include <fstream>
 
-enum T_type {
+enum t_type {
     PLANES = 1,
     TRAIN = 2,
     SHIP = 3
@@ -12,20 +12,24 @@ enum T_type {
 
 class transport {
 public:
-    T_type tr_type;
+    t_type tr_type;
     int speed;
     int distance;
     double mass;
 
     virtual bool read(std::ifstream& stream) = 0;
     virtual void out(std::ofstream& stream) = 0;
-    virtual void out_planes(std::ofstream& stream) = 0;
-    virtual void out_trains(std::ofstream& stream) = 0;
-    virtual void out_ships(std::ofstream& stream) = 0;
+    virtual void outPlanes(std::ofstream& stream) = 0;
+    virtual void outTrains(std::ofstream& stream) = 0;
+    virtual void outShips(std::ofstream& stream) = 0;
 
-    static transport* read_transport(std::ifstream&stream);
-    void out_transport(std::ofstream& stream);
-    double estimate_time();
+    virtual void multi(transport* other, std::ofstream& stream) = 0;
+    virtual void shipMulti(std::ofstream& stream) = 0;
+    virtual void planesMulti(std::ofstream& stream) = 0;
+    virtual void trainMulti(std::ofstream& stream) = 0;
+    static transport* readTransport(std::ifstream& stream);
+    void outTransport(std::ofstream& stream);
+    double estimateTime();
     static bool comparator(transport* el1, transport* el2);
 private:
 };
