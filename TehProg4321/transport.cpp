@@ -18,17 +18,14 @@ transport* transport::readTransport(std::ifstream& stream) {
     case t_type::PLANES:
         temp_t = new planes{};
         if (!temp_t->read(stream)) return nullptr;
-        temp_t->tr_type = t_type::PLANES;
         break;
     case t_type::TRAIN:
         temp_t = new train{};
         if (!temp_t->read(stream)) return nullptr;
-        temp_t->tr_type = t_type::TRAIN;
         break;
     case t_type::SHIP:
         temp_t = new ship{};
         if (!temp_t->read(stream)) return nullptr;
-        temp_t->tr_type = t_type::SHIP;
         break;
     default:
         return nullptr;
@@ -37,6 +34,7 @@ transport* transport::readTransport(std::ifstream& stream) {
     else delete temp_t;
     if (temp_t->speed <= 0) {
         delete temp_t;
+        std::cout << "Input trouble, read not all data " << std::endl;
         return nullptr;
     }
     if (!stream.eof()) stream >> temp_t->distance;
