@@ -19,7 +19,7 @@ void planes::multi(transport* other, std::ofstream& stream) {
 }
 
 void planes::shipMulti(std::ofstream& stream) {
-    stream << "| planes + ship |" << std::endl;
+    stream << "| ship + planes |" << std::endl;
 }
 
 void planes::planesMulti(std::ofstream& stream) {
@@ -27,7 +27,7 @@ void planes::planesMulti(std::ofstream& stream) {
 }
 
 void planes::trainMulti(std::ofstream& stream) {
-    stream << "| planes + train |" << std::endl;
+    stream << "| train + planes |" << std::endl;
 }
 void planes::outPlanes(std::ofstream& stream) {
     stream << "Speed: " << transport::speed << "; Estimate time: " << estimateTime() << "; Distance: " << distance << "; Mass: " << mass << "; Type: " << "Planes; Range: " << range << "; Carry: " << carry << ";" << std::endl;

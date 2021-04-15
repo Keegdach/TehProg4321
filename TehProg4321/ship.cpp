@@ -39,11 +39,11 @@ void ship::shipMulti(std::ofstream& stream) {
 }
 
 void ship::planesMulti(std::ofstream& stream) {
-    stream << "| ship + planes |" << std::endl;
+    stream << "| planes + ship |" << std::endl;
 }
 
 void ship::trainMulti(std::ofstream& stream) {
-    stream << "| ship + train |" << std::endl;
+    stream << "| train + ship |" << std::endl;
 }
 void ship::outTrains(std::ofstream& stream) {
     stream << "";

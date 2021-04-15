@@ -102,8 +102,8 @@ void container::multi(std::ofstream& ofst) {
                 continue;
             }
             el1->t->multi(el2->t, ofst);
-            el2->t->outTransport(ofst);
             el1->t->outTransport(ofst);
+            el2->t->outTransport(ofst);
             el2 = el2->forward;
         }
         el1 = el1->forward;

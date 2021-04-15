@@ -24,11 +24,11 @@ void train::multi(transport* other, std::ofstream& stream) {
 }
 
 void train::shipMulti(std::ofstream& stream) {
-    stream << "| train + ship |" << std::endl;
+    stream << "| ship + train |" << std::endl;
 }
 
 void train::planesMulti(std::ofstream& stream) {
-    stream << "| train + planes |" << std::endl;
+    stream << "| planes + train |" << std::endl;
 }
 
 void train::trainMulti(std::ofstream& stream) {
