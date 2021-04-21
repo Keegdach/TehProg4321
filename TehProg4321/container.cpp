@@ -37,6 +37,20 @@ void container::containerClear() {
     }
 }
 
+int container::outContainer(std::ofstream& stream, t_type typ) {
+    element* el = starting;
+    int count1 = 0;
+    for (int i = 0; i < size; i++) {
+        if (typ != el->t->tr_type) {
+            stream << i + 1 << ". ";
+            count1++;
+            el->t->outTransport(stream);
+        }
+        el = el->forward;
+    }
+    return count1;
+}
+
 void container::outContainer(std::ofstream& stream) {
     element* el = starting;
     for (int i = 0; i < size; i++) {

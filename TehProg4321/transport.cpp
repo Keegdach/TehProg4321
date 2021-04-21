@@ -18,14 +18,17 @@ transport* transport::readTransport(std::ifstream& stream) {
     case t_type::PLANES:
         temp_t = new planes{};
         if (!temp_t->read(stream)) return nullptr;
+        temp_t->tr_type = t_type::PLANES;
         break;
     case t_type::TRAIN:
         temp_t = new train{};
         if (!temp_t->read(stream)) return nullptr;
+        temp_t->tr_type = t_type::TRAIN;
         break;
     case t_type::SHIP:
         temp_t = new ship{};
         if (!temp_t->read(stream)) return nullptr;
+        temp_t->tr_type = t_type::SHIP;
         break;
     default:
         return nullptr;
